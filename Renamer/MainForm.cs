@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,6 +63,9 @@ namespace Renamer
 			this.OldNames = new List<FileEntry>();
 			this.NewNames = new List<FileEntry>();
 			//this.cmbDirectory.Text = @"C:\Users\jwei\Projects\Renamer\Renamer\bin\New folder";
+			this.cmbDirectory.Text = @"F:\_郅然\2017\绩优学案\练习册\课堂练习册 物理 九年级 下 D 答案";
+			this.txtOldName.Text = @"E:\Project\2013\Renamer\Renamer\bin\1.txt";
+			this.txtNewName.Text = @"E:\Project\2013\Renamer\Renamer\bin\2.txt";
 		}
 
 		#region Control Events

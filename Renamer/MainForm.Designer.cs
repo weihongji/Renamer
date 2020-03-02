@@ -32,6 +32,7 @@ namespace Renamer
 			this.txtNewName = new System.Windows.Forms.TextBox();
 			this.txtOldName = new System.Windows.Forms.TextBox();
 			this.btnBrowse = new System.Windows.Forms.Button();
+			this.btnSwape = new System.Windows.Forms.Button();
 			this.menuDirAction = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.menuOpenFolder = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuCopyFileNames = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,12 +46,16 @@ namespace Renamer
 			this.pnlTable = new System.Windows.Forms.TableLayoutPanel();
 			this.pnlBrowser = new System.Windows.Forms.Panel();
 			this.cmbDirectory = new System.Windows.Forms.ComboBox();
-			this.btnSwitch = new System.Windows.Forms.Button();
 			this.pnlBottom = new System.Windows.Forms.Panel();
+			this.groupEncoding = new System.Windows.Forms.GroupBox();
+			this.lblEncoding = new System.Windows.Forms.Label();
+			this.rdoEncodingDefault = new System.Windows.Forms.RadioButton();
+			this.rdoEncodingUTF8 = new System.Windows.Forms.RadioButton();
 			this.menuDirAction.SuspendLayout();
 			this.pnlTable.SuspendLayout();
 			this.pnlBrowser.SuspendLayout();
 			this.pnlBottom.SuspendLayout();
+			this.groupEncoding.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// txtNewName
@@ -84,6 +89,19 @@ namespace Renamer
 			this.btnBrowse.UseVisualStyleBackColor = true;
 			this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
 			// 
+			// btnSwape
+			// 
+			this.btnSwape.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.btnSwape.Location = new System.Drawing.Point(527, 67);
+			this.btnSwape.Name = "btnSwape";
+			this.pnlTable.SetRowSpan(this.btnSwape, 2);
+			this.btnSwape.Size = new System.Drawing.Size(75, 23);
+			this.btnSwape.TabIndex = 6;
+			this.btnSwape.Text = "&Swape";
+			this.toolTip1.SetToolTip(this.btnSwape, "Exchange the file in Existing/New Names.");
+			this.btnSwape.UseVisualStyleBackColor = true;
+			this.btnSwape.Click += new System.EventHandler(this.btnSwape_Click);
+			// 
 			// menuDirAction
 			// 
 			this.menuDirAction.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -113,7 +131,7 @@ namespace Renamer
 			// btnExit
 			// 
 			this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnExit.Location = new System.Drawing.Point(342, 12);
+			this.btnExit.Location = new System.Drawing.Point(340, 93);
 			this.btnExit.Name = "btnExit";
 			this.btnExit.Size = new System.Drawing.Size(131, 34);
 			this.btnExit.TabIndex = 1;
@@ -123,7 +141,7 @@ namespace Renamer
 			// 
 			// btnRename
 			// 
-			this.btnRename.Location = new System.Drawing.Point(146, 12);
+			this.btnRename.Location = new System.Drawing.Point(144, 93);
 			this.btnRename.Name = "btnRename";
 			this.btnRename.Size = new System.Drawing.Size(131, 34);
 			this.btnRename.TabIndex = 0;
@@ -189,7 +207,7 @@ namespace Renamer
 			this.pnlTable.Controls.Add(this.lblOrigList, 0, 2);
 			this.pnlTable.Controls.Add(this.txtOldName, 1, 2);
 			this.pnlTable.Controls.Add(this.cmbDirectory, 1, 1);
-			this.pnlTable.Controls.Add(this.btnSwitch, 2, 2);
+			this.pnlTable.Controls.Add(this.btnSwape, 2, 2);
 			this.pnlTable.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlTable.Location = new System.Drawing.Point(0, 0);
 			this.pnlTable.Name = "pnlTable";
@@ -199,7 +217,7 @@ namespace Renamer
 			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
 			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
 			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.pnlTable.Size = new System.Drawing.Size(684, 118);
+			this.pnlTable.Size = new System.Drawing.Size(684, 112);
 			this.pnlTable.TabIndex = 0;
 			// 
 			// pnlBrowser
@@ -222,40 +240,72 @@ namespace Renamer
 			this.cmbDirectory.Size = new System.Drawing.Size(408, 20);
 			this.cmbDirectory.TabIndex = 1;
 			// 
-			// btnSwitch
-			// 
-			this.btnSwitch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.btnSwitch.Location = new System.Drawing.Point(527, 70);
-			this.btnSwitch.Name = "btnSwitch";
-			this.pnlTable.SetRowSpan(this.btnSwitch, 2);
-			this.btnSwitch.Size = new System.Drawing.Size(75, 23);
-			this.btnSwitch.TabIndex = 6;
-			this.btnSwitch.Text = "&Switch";
-			this.toolTip1.SetToolTip(this.btnSwitch, "Exchange the file in Existing/New Names.");
-			this.btnSwitch.UseVisualStyleBackColor = true;
-			this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
-			// 
 			// pnlBottom
 			// 
+			this.pnlBottom.Controls.Add(this.groupEncoding);
 			this.pnlBottom.Controls.Add(this.btnExit);
 			this.pnlBottom.Controls.Add(this.btnRename);
 			this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlBottom.Location = new System.Drawing.Point(0, 118);
+			this.pnlBottom.Location = new System.Drawing.Point(0, 112);
 			this.pnlBottom.Name = "pnlBottom";
-			this.pnlBottom.Size = new System.Drawing.Size(684, 68);
+			this.pnlBottom.Size = new System.Drawing.Size(684, 139);
 			this.pnlBottom.TabIndex = 1;
+			// 
+			// groupEncoding
+			// 
+			this.groupEncoding.Controls.Add(this.rdoEncodingUTF8);
+			this.groupEncoding.Controls.Add(this.rdoEncodingDefault);
+			this.groupEncoding.Controls.Add(this.lblEncoding);
+			this.groupEncoding.Location = new System.Drawing.Point(113, 6);
+			this.groupEncoding.Name = "groupEncoding";
+			this.groupEncoding.Size = new System.Drawing.Size(408, 66);
+			this.groupEncoding.TabIndex = 2;
+			this.groupEncoding.TabStop = false;
+			this.groupEncoding.Text = "Encoding";
+			// 
+			// lblEncoding
+			// 
+			this.lblEncoding.AutoSize = true;
+			this.lblEncoding.Location = new System.Drawing.Point(16, 40);
+			this.lblEncoding.Name = "lblEncoding";
+			this.lblEncoding.Size = new System.Drawing.Size(263, 12);
+			this.lblEncoding.TabIndex = 0;
+			this.lblEncoding.Text = "The two list files mush have same encoding.";
+			// 
+			// rdoEncodingDefault
+			// 
+			this.rdoEncodingDefault.AutoSize = true;
+			this.rdoEncodingDefault.Checked = true;
+			this.rdoEncodingDefault.Location = new System.Drawing.Point(70, 18);
+			this.rdoEncodingDefault.Name = "rdoEncodingDefault";
+			this.rdoEncodingDefault.Size = new System.Drawing.Size(65, 16);
+			this.rdoEncodingDefault.TabIndex = 1;
+			this.rdoEncodingDefault.TabStop = true;
+			this.rdoEncodingDefault.Text = "Default";
+			this.rdoEncodingDefault.UseVisualStyleBackColor = true;
+			// 
+			// rdoEncodingUTF8
+			// 
+			this.rdoEncodingUTF8.AutoSize = true;
+			this.rdoEncodingUTF8.Location = new System.Drawing.Point(197, 17);
+			this.rdoEncodingUTF8.Name = "rdoEncodingUTF8";
+			this.rdoEncodingUTF8.Size = new System.Drawing.Size(53, 16);
+			this.rdoEncodingUTF8.TabIndex = 2;
+			this.rdoEncodingUTF8.TabStop = true;
+			this.rdoEncodingUTF8.Text = "UTF-8";
+			this.rdoEncodingUTF8.UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnExit;
-			this.ClientSize = new System.Drawing.Size(684, 186);
+			this.ClientSize = new System.Drawing.Size(684, 251);
 			this.Controls.Add(this.pnlBottom);
 			this.Controls.Add(this.pnlTable);
 			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(1600, 234);
-			this.MinimumSize = new System.Drawing.Size(650, 225);
+			this.MaximumSize = new System.Drawing.Size(1600, 300);
+			this.MinimumSize = new System.Drawing.Size(650, 290);
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Renamer";
@@ -264,6 +314,8 @@ namespace Renamer
 			this.pnlTable.PerformLayout();
 			this.pnlBrowser.ResumeLayout(false);
 			this.pnlBottom.ResumeLayout(false);
+			this.groupEncoding.ResumeLayout(false);
+			this.groupEncoding.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -288,7 +340,11 @@ namespace Renamer
 		private System.Windows.Forms.Panel pnlBrowser;
 		private System.Windows.Forms.Panel pnlBottom;
 		private System.Windows.Forms.ComboBox cmbDirectory;
-		private System.Windows.Forms.Button btnSwitch;
+		private System.Windows.Forms.Button btnSwape;
+		private System.Windows.Forms.GroupBox groupEncoding;
+		private System.Windows.Forms.RadioButton rdoEncodingUTF8;
+		private System.Windows.Forms.RadioButton rdoEncodingDefault;
+		private System.Windows.Forms.Label lblEncoding;
 	}
 }
 

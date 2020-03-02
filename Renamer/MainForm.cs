@@ -60,12 +60,25 @@ namespace Renamer
 		public MainForm() {
 			InitializeComponent();
 
+			// Initialization
 			this.OldNames = new List<FileEntry>();
 			this.NewNames = new List<FileEntry>();
-			//this.cmbDirectory.Text = @"C:\Users\jwei\Projects\Renamer\Renamer\bin\New folder";
-			this.cmbDirectory.Text = @"F:\_郅然\2017\绩优学案\练习册\课堂练习册 物理 九年级 下 D 答案";
-			this.txtOldName.Text = @"E:\Project\2013\Renamer\Renamer\bin\1.txt";
-			this.txtNewName.Text = @"E:\Project\2013\Renamer\Renamer\bin\2.txt";
+
+			// Load Configuration
+			this.cmbDirectory.Text = GetConfigString("Directory");
+			this.txtOldName.Text = GetConfigString("OldFile", "1.txt");
+			this.txtNewName.Text = GetConfigString("NewFile", "2.txt");
+			var encoding = GetConfigString("Encoding");
+			if (encoding == "UTF8") {
+				this.rdoEncodingUTF8.Checked = true;
+			}
+			else {
+				this.rdoEncodingDefault.Checked = true;
+			}
+			int width = GetConfigInt("Width");
+			if ((width >= this.MinimumSize.Width || this.MinimumSize.Width == 0) && (width <= this.MaximumSize.Width || this.MaximumSize.Width == 0)) {
+				this.Width = width;
+			}
 		}
 
 		#region Control Events
@@ -89,8 +102,23 @@ namespace Renamer
 
 			var msg = CheckList();
 			if (msg.Length > 0) {
-				var form = new InfoDialog(msg);
-				form.ShowDialog(this);
+				int lineCount = 0;
+				foreach (var ch in msg) {
+					if (ch == '\n') {
+						lineCount++;
+					}
+				}
+				if (lineCount <= 2) {
+					MessageBox.Show(msg, "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+				else {
+					var form = new InfoDialog(msg) { Title = "Problem" };
+					form.ShowDialog(this);
+				}
+				return;
+			}
+
+			if (!PreviewList()) {
 				return;
 			}
 
@@ -168,7 +196,7 @@ namespace Renamer
 			}
 		}
 
-		private void btnSwitch_Click(object sender, EventArgs e) {
+		private void btnSwape_Click(object sender, EventArgs e) {
 			var s = this.txtOldName.Text;
 			this.txtOldName.Text = this.txtNewName.Text;
 			this.txtNewName.Text = s;
@@ -234,7 +262,8 @@ namespace Renamer
 			String file1 = GetFileName(this.File1);
 			String file2 = GetFileName(this.File2);
 
-			String[] lines = File.ReadAllLines(file, Encoding.Default);
+			Encoding encoding = this.rdoEncodingDefault.Checked ? Encoding.Default : Encoding.UTF8;
+			String[] lines = File.ReadAllLines(file, encoding);
 			List<String> names = new List<String>();
 
 			for (int i = 0; i < lines.Length; i++) {
@@ -308,6 +337,24 @@ namespace Renamer
 			return String.Join("\r\n", messages.ToArray());
 		}
 
+		private Boolean PreviewList() {
+			int maxChar = 0;
+			foreach (var entry in this.OldNames) {
+				if (entry.Name.Length > maxChar) {
+					maxChar = entry.Name.Length;
+				}
+			}
+			List<String> items = new List<String>();
+			for (int i = 0; i < this.OldNames.Count; i++) {
+				var n1 = this.OldNames[i];
+				var n2 = this.NewNames[i];
+				items.Add(String.Format("{0} -->  {1}", n1.Name.PadRight(maxChar), n2.Name));
+			}
+			var dialog = new PreviewDialog(String.Join("\r\n", items.ToArray()));
+			var result = dialog.ShowDialog(this);
+			return result == DialogResult.OK;
+		}
+
 		// Put the folder into combox
 		private void PushToHistory(string text) {
 			if (text == null || text.Trim().Length == 0) {
@@ -320,7 +367,36 @@ namespace Renamer
 			this.cmbDirectory.Items.Insert(0, text);
 		}
 
-		#endregion
+		private static string GetConfigString(string key, string defaultValue = "") {
+			var config = System.Configuration.ConfigurationManager.AppSettings[key];
 
+			if (!string.IsNullOrEmpty(config)) {
+				return config;
+			}
+			return defaultValue;
+		}
+
+		private static int GetConfigInt(string key, int defaultValue = 0) {
+			var config = System.Configuration.ConfigurationManager.AppSettings[key];
+
+			int i;
+			if (!string.IsNullOrEmpty(config) && int.TryParse(config, out i)) {
+				if (i > 0) {
+					return i;
+				}
+			}
+			return defaultValue;
+		}
+
+		private static bool GetConfigBool(string key, bool defaultValue = false) {
+			var config = System.Configuration.ConfigurationManager.AppSettings[key];
+
+			bool b;
+			if (!string.IsNullOrEmpty(config) && bool.TryParse(config, out b)) {
+				return b;
+			}
+			return defaultValue;
+		}
+		#endregion
 	}
 }

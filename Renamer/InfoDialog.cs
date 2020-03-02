@@ -10,6 +10,8 @@ namespace Renamer
 {
 	public partial class InfoDialog : Form
 	{
+		public String Title { get; set; }
+
 		public InfoDialog() {
 			InitializeComponent();
 		}
@@ -19,18 +21,20 @@ namespace Renamer
 			this.textBox1.Text = text;
 		}
 
-		private void textBox1_KeyUp(object sender, KeyEventArgs e) {
-			if (e.KeyCode == Keys.Escape) {
-				this.Close();
-			}
-		}
-
 		private void InfoForm_Load(object sender, EventArgs e) {
-			//this.Location = this.Owner.Location;
+			if (!String.IsNullOrEmpty(this.Title)) {
+				this.Text = this.Title;
+			}
 		}
 
 		private void InfoForm_Shown(object sender, EventArgs e) {
 			this.textBox1.SelectionLength = 0;
+		}
+
+		private void textBox1_KeyUp(object sender, KeyEventArgs e) {
+			if (e.KeyCode == Keys.Escape) {
+				this.Close();
+			}
 		}
 	}
 }

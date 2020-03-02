@@ -28,252 +28,263 @@ namespace Renamer
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.txtDirectory = new System.Windows.Forms.TextBox();
-			this.txtOldName = new System.Windows.Forms.TextBox();
-			this.txtNewName = new System.Windows.Forms.TextBox();
-			this.lblDirectory = new System.Windows.Forms.Label();
-			this.lblOrigList = new System.Windows.Forms.Label();
-			this.lblNewList = new System.Windows.Forms.Label();
-			this.gbOption = new System.Windows.Forms.GroupBox();
-			this.chkFolder = new System.Windows.Forms.CheckBox();
-			this.chkFile = new System.Windows.Forms.CheckBox();
-			this.btnRename = new System.Windows.Forms.Button();
-			this.btnExit = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.btnAction = new System.Windows.Forms.Button();
-			this.btnActionMenu = new System.Windows.Forms.Button();
+			this.txtNewName = new System.Windows.Forms.TextBox();
+			this.txtOldName = new System.Windows.Forms.TextBox();
+			this.btnBrowse = new System.Windows.Forms.Button();
 			this.menuDirAction = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.browseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.openThisDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.createFileListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.updateListPathesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-			this.gbOption.SuspendLayout();
+			this.menuOpenFolder = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuCopyFileNames = new System.Windows.Forms.ToolStripMenuItem();
+			this.browserDialog = new System.Windows.Forms.FolderBrowserDialog();
+			this.btnExit = new System.Windows.Forms.Button();
+			this.btnRename = new System.Windows.Forms.Button();
+			this.lblNewList = new System.Windows.Forms.Label();
+			this.lblOrigList = new System.Windows.Forms.Label();
+			this.btnActionMenu = new System.Windows.Forms.Button();
+			this.lblDirectory = new System.Windows.Forms.Label();
+			this.pnlTable = new System.Windows.Forms.TableLayoutPanel();
+			this.pnlBrowser = new System.Windows.Forms.Panel();
+			this.cmbDirectory = new System.Windows.Forms.ComboBox();
+			this.pnlBottom = new System.Windows.Forms.Panel();
+			this.btnSwitch = new System.Windows.Forms.Button();
 			this.menuDirAction.SuspendLayout();
+			this.pnlTable.SuspendLayout();
+			this.pnlBrowser.SuspendLayout();
+			this.pnlBottom.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// txtDirectory
-			// 
-			this.txtDirectory.Location = new System.Drawing.Point(147, 20);
-			this.txtDirectory.Name = "txtDirectory";
-			this.txtDirectory.Size = new System.Drawing.Size(241, 21);
-			this.txtDirectory.TabIndex = 1;
-			this.toolTip1.SetToolTip(this.txtDirectory, "Directory where the renaming files or folders are in.");
-			// 
-			// txtOldName
-			// 
-			this.txtOldName.Location = new System.Drawing.Point(147, 48);
-			this.txtOldName.Name = "txtOldName";
-			this.txtOldName.Size = new System.Drawing.Size(241, 21);
-			this.txtOldName.TabIndex = 5;
-			this.txtOldName.Text = "_OldName.txt";
-			this.toolTip1.SetToolTip(this.txtOldName, "Full path of file which has a list of renaming file/folders\' original names");
 			// 
 			// txtNewName
 			// 
-			this.txtNewName.Location = new System.Drawing.Point(147, 76);
+			this.txtNewName.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtNewName.Location = new System.Drawing.Point(103, 88);
 			this.txtNewName.Name = "txtNewName";
-			this.txtNewName.Size = new System.Drawing.Size(241, 21);
-			this.txtNewName.TabIndex = 7;
-			this.txtNewName.Text = "_NewName.txt";
+			this.txtNewName.Size = new System.Drawing.Size(418, 20);
+			this.txtNewName.TabIndex = 5;
+			this.txtNewName.Text = "2.txt";
 			this.toolTip1.SetToolTip(this.txtNewName, "Full path of file which has a list of new names for those file/folders.");
 			// 
-			// lblDirectory
+			// txtOldName
 			// 
-			this.lblDirectory.AutoSize = true;
-			this.lblDirectory.Location = new System.Drawing.Point(47, 24);
-			this.lblDirectory.Name = "lblDirectory";
-			this.lblDirectory.Size = new System.Drawing.Size(65, 12);
-			this.lblDirectory.TabIndex = 0;
-			this.lblDirectory.Text = "&Directory:";
+			this.txtOldName.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtOldName.Location = new System.Drawing.Point(103, 53);
+			this.txtOldName.Name = "txtOldName";
+			this.txtOldName.Size = new System.Drawing.Size(418, 20);
+			this.txtOldName.TabIndex = 3;
+			this.txtOldName.Text = "1.txt";
+			this.toolTip1.SetToolTip(this.txtOldName, "Full path of file which has a list of renaming file/folders\' original names");
 			// 
-			// lblOrigList
+			// btnBrowse
 			// 
-			this.lblOrigList.AutoSize = true;
-			this.lblOrigList.Location = new System.Drawing.Point(47, 52);
-			this.lblOrigList.Name = "lblOrigList";
-			this.lblOrigList.Size = new System.Drawing.Size(95, 12);
-			this.lblOrigList.TabIndex = 4;
-			this.lblOrigList.Text = "&Existing names:";
+			this.btnBrowse.Location = new System.Drawing.Point(3, 0);
+			this.btnBrowse.Name = "btnBrowse";
+			this.btnBrowse.Size = new System.Drawing.Size(75, 25);
+			this.btnBrowse.TabIndex = 0;
+			this.btnBrowse.Text = "&Browse ...";
+			this.toolTip1.SetToolTip(this.btnBrowse, "Select a directory");
+			this.btnBrowse.UseVisualStyleBackColor = true;
+			this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
 			// 
-			// lblNewList
+			// menuDirAction
 			// 
-			this.lblNewList.AutoSize = true;
-			this.lblNewList.Location = new System.Drawing.Point(47, 80);
-			this.lblNewList.Name = "lblNewList";
-			this.lblNewList.Size = new System.Drawing.Size(65, 12);
-			this.lblNewList.TabIndex = 6;
-			this.lblNewList.Text = "&New names:";
+			this.menuDirAction.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuOpenFolder,
+            this.menuCopyFileNames});
+			this.menuDirAction.Name = "menuDirAction";
+			this.menuDirAction.Size = new System.Drawing.Size(164, 48);
 			// 
-			// gbOption
+			// menuOpenFolder
 			// 
-			this.gbOption.Controls.Add(this.chkFolder);
-			this.gbOption.Controls.Add(this.chkFile);
-			this.gbOption.Location = new System.Drawing.Point(47, 111);
-			this.gbOption.Name = "gbOption";
-			this.gbOption.Size = new System.Drawing.Size(337, 57);
-			this.gbOption.TabIndex = 8;
-			this.gbOption.TabStop = false;
-			this.gbOption.Text = "Option";
+			this.menuOpenFolder.Name = "menuOpenFolder";
+			this.menuOpenFolder.Size = new System.Drawing.Size(163, 22);
+			this.menuOpenFolder.Text = "&Open Folder";
+			this.menuOpenFolder.Click += new System.EventHandler(this.menuOpenFolder_Click);
 			// 
-			// chkFolder
+			// menuCopyFileNames
 			// 
-			this.chkFolder.AutoSize = true;
-			this.chkFolder.Checked = true;
-			this.chkFolder.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.chkFolder.Location = new System.Drawing.Point(173, 26);
-			this.chkFolder.Name = "chkFolder";
-			this.chkFolder.Size = new System.Drawing.Size(108, 16);
-			this.chkFolder.TabIndex = 10;
-			this.chkFolder.Text = "Rename Folders";
-			this.chkFolder.UseVisualStyleBackColor = true;
+			this.menuCopyFileNames.Name = "menuCopyFileNames";
+			this.menuCopyFileNames.Size = new System.Drawing.Size(163, 22);
+			this.menuCopyFileNames.Text = "&Copy File Names";
+			this.menuCopyFileNames.Click += new System.EventHandler(this.menuCopyFileNames_Click);
 			// 
-			// chkFile
+			// browserDialog
 			// 
-			this.chkFile.AutoSize = true;
-			this.chkFile.Checked = true;
-			this.chkFile.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.chkFile.Location = new System.Drawing.Point(55, 26);
-			this.chkFile.Name = "chkFile";
-			this.chkFile.Size = new System.Drawing.Size(96, 16);
-			this.chkFile.TabIndex = 9;
-			this.chkFile.Text = "Rename Files";
-			this.chkFile.UseVisualStyleBackColor = true;
-			// 
-			// btnRename
-			// 
-			this.btnRename.Location = new System.Drawing.Point(162, 193);
-			this.btnRename.Name = "btnRename";
-			this.btnRename.Size = new System.Drawing.Size(85, 23);
-			this.btnRename.TabIndex = 11;
-			this.btnRename.Text = "&Rename ...";
-			this.btnRename.UseVisualStyleBackColor = true;
-			this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
+			this.browserDialog.ShowNewFolderButton = false;
 			// 
 			// btnExit
 			// 
-			this.btnExit.Location = new System.Drawing.Point(297, 193);
+			this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btnExit.Location = new System.Drawing.Point(342, 13);
 			this.btnExit.Name = "btnExit";
-			this.btnExit.Size = new System.Drawing.Size(85, 23);
-			this.btnExit.TabIndex = 12;
+			this.btnExit.Size = new System.Drawing.Size(131, 37);
+			this.btnExit.TabIndex = 1;
 			this.btnExit.Text = "E&xit";
 			this.btnExit.UseVisualStyleBackColor = true;
 			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
 			// 
-			// btnAction
+			// btnRename
 			// 
-			this.btnAction.Location = new System.Drawing.Point(400, 19);
-			this.btnAction.Name = "btnAction";
-			this.btnAction.Size = new System.Drawing.Size(75, 23);
-			this.btnAction.TabIndex = 2;
-			this.btnAction.Text = "&Browse ...";
-			this.toolTip1.SetToolTip(this.btnAction, "Select a directory");
-			this.btnAction.UseVisualStyleBackColor = true;
-			this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
+			this.btnRename.Location = new System.Drawing.Point(146, 13);
+			this.btnRename.Name = "btnRename";
+			this.btnRename.Size = new System.Drawing.Size(131, 37);
+			this.btnRename.TabIndex = 0;
+			this.btnRename.Text = "&Rename";
+			this.btnRename.UseVisualStyleBackColor = true;
+			this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
+			// 
+			// lblNewList
+			// 
+			this.lblNewList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.lblNewList.AutoSize = true;
+			this.lblNewList.Location = new System.Drawing.Point(31, 85);
+			this.lblNewList.Name = "lblNewList";
+			this.lblNewList.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+			this.lblNewList.Size = new System.Drawing.Size(66, 18);
+			this.lblNewList.TabIndex = 4;
+			this.lblNewList.Text = "&New names:";
+			// 
+			// lblOrigList
+			// 
+			this.lblOrigList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.lblOrigList.AutoSize = true;
+			this.lblOrigList.Location = new System.Drawing.Point(17, 50);
+			this.lblOrigList.Name = "lblOrigList";
+			this.lblOrigList.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+			this.lblOrigList.Size = new System.Drawing.Size(80, 18);
+			this.lblOrigList.TabIndex = 3;
+			this.lblOrigList.Text = "&Existing names:";
 			// 
 			// btnActionMenu
 			// 
 			this.btnActionMenu.ContextMenuStrip = this.menuDirAction;
 			this.btnActionMenu.Font = new System.Drawing.Font("Marlett", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.btnActionMenu.Location = new System.Drawing.Point(474, 19);
+			this.btnActionMenu.Location = new System.Drawing.Point(80, 0);
 			this.btnActionMenu.Name = "btnActionMenu";
-			this.btnActionMenu.Size = new System.Drawing.Size(23, 23);
-			this.btnActionMenu.TabIndex = 3;
+			this.btnActionMenu.Size = new System.Drawing.Size(23, 25);
+			this.btnActionMenu.TabIndex = 1;
 			this.btnActionMenu.Text = "4";
 			this.btnActionMenu.UseVisualStyleBackColor = true;
 			this.btnActionMenu.Click += new System.EventHandler(this.btnActionMenu_Click);
 			// 
-			// menuDirAction
+			// lblDirectory
 			// 
-			this.menuDirAction.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.browseToolStripMenuItem,
-            this.openThisDirectoryToolStripMenuItem,
-            this.createFileListToolStripMenuItem,
-            this.updateListPathesToolStripMenuItem});
-			this.menuDirAction.Name = "menuDirAction";
-			this.menuDirAction.Size = new System.Drawing.Size(189, 92);
+			this.lblDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.lblDirectory.AutoSize = true;
+			this.lblDirectory.Location = new System.Drawing.Point(45, 10);
+			this.lblDirectory.Name = "lblDirectory";
+			this.lblDirectory.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+			this.lblDirectory.Size = new System.Drawing.Size(52, 23);
+			this.lblDirectory.TabIndex = 1;
+			this.lblDirectory.Text = "&Directory:";
 			// 
-			// browseToolStripMenuItem
+			// pnlTable
 			// 
-			this.browseToolStripMenuItem.Name = "browseToolStripMenuItem";
-			this.browseToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-			this.browseToolStripMenuItem.Text = "&Browse ...";
-			this.browseToolStripMenuItem.Click += new System.EventHandler(this.browseToolStripMenuItem_Click);
+			this.pnlTable.ColumnCount = 3;
+			this.pnlTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+			this.pnlTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.pnlTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+			this.pnlTable.Controls.Add(this.pnlBrowser, 2, 1);
+			this.pnlTable.Controls.Add(this.lblDirectory, 0, 1);
+			this.pnlTable.Controls.Add(this.txtNewName, 1, 3);
+			this.pnlTable.Controls.Add(this.lblNewList, 0, 3);
+			this.pnlTable.Controls.Add(this.lblOrigList, 0, 2);
+			this.pnlTable.Controls.Add(this.txtOldName, 1, 2);
+			this.pnlTable.Controls.Add(this.cmbDirectory, 1, 1);
+			this.pnlTable.Controls.Add(this.btnSwitch, 2, 3);
+			this.pnlTable.Dock = System.Windows.Forms.DockStyle.Top;
+			this.pnlTable.Location = new System.Drawing.Point(0, 0);
+			this.pnlTable.Name = "pnlTable";
+			this.pnlTable.RowCount = 4;
+			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+			this.pnlTable.Size = new System.Drawing.Size(684, 128);
+			this.pnlTable.TabIndex = 0;
 			// 
-			// openThisDirectoryToolStripMenuItem
+			// pnlBrowser
 			// 
-			this.openThisDirectoryToolStripMenuItem.Name = "openThisDirectoryToolStripMenuItem";
-			this.openThisDirectoryToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-			this.openThisDirectoryToolStripMenuItem.Text = "&Open this directory";
-			this.openThisDirectoryToolStripMenuItem.Click += new System.EventHandler(this.openThisDirectoryToolStripMenuItem_Click);
+			this.pnlBrowser.Controls.Add(this.btnBrowse);
+			this.pnlBrowser.Controls.Add(this.btnActionMenu);
+			this.pnlBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pnlBrowser.Location = new System.Drawing.Point(527, 13);
+			this.pnlBrowser.Name = "pnlBrowser";
+			this.pnlBrowser.Size = new System.Drawing.Size(154, 34);
+			this.pnlBrowser.TabIndex = 2;
 			// 
-			// createFileListToolStripMenuItem
+			// cmbDirectory
 			// 
-			this.createFileListToolStripMenuItem.Name = "createFileListToolStripMenuItem";
-			this.createFileListToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-			this.createFileListToolStripMenuItem.Text = "&Create file list";
-			this.createFileListToolStripMenuItem.Click += new System.EventHandler(this.createFileListToolStripMenuItem_Click);
+			this.cmbDirectory.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cmbDirectory.FormattingEnabled = true;
+			this.cmbDirectory.Location = new System.Drawing.Point(103, 18);
+			this.cmbDirectory.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+			this.cmbDirectory.Name = "cmbDirectory";
+			this.cmbDirectory.Size = new System.Drawing.Size(418, 21);
+			this.cmbDirectory.TabIndex = 1;
 			// 
-			// updateListPathesToolStripMenuItem
+			// pnlBottom
 			// 
-			this.updateListPathesToolStripMenuItem.Name = "updateListPathesToolStripMenuItem";
-			this.updateListPathesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-			this.updateListPathesToolStripMenuItem.Text = "&Apply to list paths";
-			this.updateListPathesToolStripMenuItem.Click += new System.EventHandler(this.updateListPathesToolStripMenuItem_Click);
+			this.pnlBottom.Controls.Add(this.btnExit);
+			this.pnlBottom.Controls.Add(this.btnRename);
+			this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pnlBottom.Location = new System.Drawing.Point(0, 128);
+			this.pnlBottom.Name = "pnlBottom";
+			this.pnlBottom.Size = new System.Drawing.Size(684, 73);
+			this.pnlBottom.TabIndex = 1;
 			// 
-			// folderBrowserDialog1
+			// btnSwitch
 			// 
-			this.folderBrowserDialog1.ShowNewFolderButton = false;
+			this.btnSwitch.Location = new System.Drawing.Point(527, 88);
+			this.btnSwitch.Name = "btnSwitch";
+			this.btnSwitch.Size = new System.Drawing.Size(75, 25);
+			this.btnSwitch.TabIndex = 6;
+			this.btnSwitch.Text = "&Switch";
+			this.btnSwitch.UseVisualStyleBackColor = true;
+			this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
 			// 
 			// MainForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(544, 245);
-			this.Controls.Add(this.btnActionMenu);
-			this.Controls.Add(this.btnAction);
-			this.Controls.Add(this.btnExit);
-			this.Controls.Add(this.btnRename);
-			this.Controls.Add(this.gbOption);
-			this.Controls.Add(this.lblNewList);
-			this.Controls.Add(this.lblOrigList);
-			this.Controls.Add(this.lblDirectory);
-			this.Controls.Add(this.txtNewName);
-			this.Controls.Add(this.txtOldName);
-			this.Controls.Add(this.txtDirectory);
+			this.CancelButton = this.btnExit;
+			this.ClientSize = new System.Drawing.Size(684, 201);
+			this.Controls.Add(this.pnlBottom);
+			this.Controls.Add(this.pnlTable);
+			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(1600, 250);
+			this.MinimumSize = new System.Drawing.Size(650, 240);
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Renamer";
-			this.gbOption.ResumeLayout(false);
-			this.gbOption.PerformLayout();
 			this.menuDirAction.ResumeLayout(false);
+			this.pnlTable.ResumeLayout(false);
+			this.pnlTable.PerformLayout();
+			this.pnlBrowser.ResumeLayout(false);
+			this.pnlBottom.ResumeLayout(false);
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.TextBox txtDirectory;
-		private System.Windows.Forms.TextBox txtOldName;
-		private System.Windows.Forms.TextBox txtNewName;
-		private System.Windows.Forms.Label lblDirectory;
-		private System.Windows.Forms.Label lblOrigList;
-		private System.Windows.Forms.Label lblNewList;
-		private System.Windows.Forms.GroupBox gbOption;
-		private System.Windows.Forms.CheckBox chkFolder;
-		private System.Windows.Forms.CheckBox chkFile;
-		private System.Windows.Forms.Button btnRename;
-		private System.Windows.Forms.Button btnExit;
 		private System.Windows.Forms.ToolTip toolTip1;
-		private System.Windows.Forms.Button btnAction;
-		private System.Windows.Forms.Button btnActionMenu;
 		private System.Windows.Forms.ContextMenuStrip menuDirAction;
-		private System.Windows.Forms.ToolStripMenuItem openThisDirectoryToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem createFileListToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem updateListPathesToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem browseToolStripMenuItem;
-		private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+		private System.Windows.Forms.ToolStripMenuItem menuOpenFolder;
+		private System.Windows.Forms.ToolStripMenuItem menuCopyFileNames;
+		private System.Windows.Forms.FolderBrowserDialog browserDialog;
+		private System.Windows.Forms.Button btnExit;
+		private System.Windows.Forms.Button btnRename;
+		private System.Windows.Forms.TextBox txtNewName;
+		private System.Windows.Forms.Label lblNewList;
+		private System.Windows.Forms.TextBox txtOldName;
+		private System.Windows.Forms.Label lblOrigList;
+		private System.Windows.Forms.Button btnBrowse;
+		private System.Windows.Forms.Button btnActionMenu;
+		private System.Windows.Forms.Label lblDirectory;
+		private System.Windows.Forms.TableLayoutPanel pnlTable;
+		private System.Windows.Forms.Panel pnlBrowser;
+		private System.Windows.Forms.Panel pnlBottom;
+		private System.Windows.Forms.ComboBox cmbDirectory;
+		private System.Windows.Forms.Button btnSwitch;
 	}
 }
 

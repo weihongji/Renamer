@@ -26,12 +26,12 @@
 		/// </summary>
 		private void InitializeComponent() {
 			this.pnlTop = new System.Windows.Forms.Panel();
-			this.pnlBottom = new System.Windows.Forms.Panel();
-			this.pnlMiddle = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
-			this.txtList = new System.Windows.Forms.TextBox();
-			this.btnOK = new System.Windows.Forms.Button();
+			this.pnlBottom = new System.Windows.Forms.Panel();
 			this.btnCancel = new System.Windows.Forms.Button();
+			this.btnOK = new System.Windows.Forms.Button();
+			this.pnlMiddle = new System.Windows.Forms.Panel();
+			this.txtList = new System.Windows.Forms.TextBox();
 			this.pnlTop.SuspendLayout();
 			this.pnlBottom.SuspendLayout();
 			this.pnlMiddle.SuspendLayout();
@@ -46,6 +46,15 @@
 			this.pnlTop.Size = new System.Drawing.Size(484, 34);
 			this.pnlTop.TabIndex = 0;
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(3, 9);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(371, 12);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Following files will be renamed. Click OK button to continue.";
+			// 
 			// pnlBottom
 			// 
 			this.pnlBottom.Controls.Add(this.btnCancel);
@@ -56,6 +65,27 @@
 			this.pnlBottom.Size = new System.Drawing.Size(484, 53);
 			this.pnlBottom.TabIndex = 1;
 			// 
+			// btnCancel
+			// 
+			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btnCancel.Location = new System.Drawing.Point(274, 7);
+			this.btnCancel.Name = "btnCancel";
+			this.btnCancel.Size = new System.Drawing.Size(120, 34);
+			this.btnCancel.TabIndex = 0;
+			this.btnCancel.Text = "&Cancel";
+			this.btnCancel.UseVisualStyleBackColor = true;
+			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+			// 
+			// btnOK
+			// 
+			this.btnOK.Location = new System.Drawing.Point(90, 7);
+			this.btnOK.Name = "btnOK";
+			this.btnOK.Size = new System.Drawing.Size(120, 34);
+			this.btnOK.TabIndex = 0;
+			this.btnOK.Text = "&OK";
+			this.btnOK.UseVisualStyleBackColor = true;
+			this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+			// 
 			// pnlMiddle
 			// 
 			this.pnlMiddle.Controls.Add(this.txtList);
@@ -64,15 +94,6 @@
 			this.pnlMiddle.Name = "pnlMiddle";
 			this.pnlMiddle.Size = new System.Drawing.Size(484, 374);
 			this.pnlMiddle.TabIndex = 2;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(3, 9);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(371, 12);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Following files will be renamed. Click OK button to continue.";
 			// 
 			// txtList
 			// 
@@ -90,30 +111,11 @@
 			this.txtList.WordWrap = false;
 			this.txtList.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtList_KeyUp);
 			// 
-			// btnOK
-			// 
-			this.btnOK.Location = new System.Drawing.Point(90, 7);
-			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(120, 34);
-			this.btnOK.TabIndex = 0;
-			this.btnOK.Text = "&OK";
-			this.btnOK.UseVisualStyleBackColor = true;
-			this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-			// 
-			// btnCancel
-			// 
-			this.btnCancel.Location = new System.Drawing.Point(274, 7);
-			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(120, 34);
-			this.btnCancel.TabIndex = 0;
-			this.btnCancel.Text = "&Cancel";
-			this.btnCancel.UseVisualStyleBackColor = true;
-			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-			// 
 			// PreviewDialog
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.btnCancel;
 			this.ClientSize = new System.Drawing.Size(484, 461);
 			this.Controls.Add(this.pnlMiddle);
 			this.Controls.Add(this.pnlBottom);

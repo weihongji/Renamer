@@ -11,8 +11,7 @@ namespace Renamer
 		private bool _bIncludeFile = true;
 		private bool _bIncludeFolder = true;
 
-		public String Directory
-		{
+		public String Directory {
 			set {
 				if (value.Length < 3) { // The directory is not a full path or invalid.
 					this._sDirectory = "";
@@ -24,21 +23,18 @@ namespace Renamer
 			get { return this._sDirectory; }
 		}
 
-		public bool IncludeFile
-		{
+		public bool IncludeFile {
 			set { this._bIncludeFile = value; }
 			get { return this._bIncludeFile; }
 		}
 
-		public bool IncludeFolder
-		{
+		public bool IncludeFolder {
 			set { this._bIncludeFolder = value; }
 			get { return this._bIncludeFolder; }
 		}
 
 		// Return the count of files that has been renamed successfully. If encounters error, return -1.
-		public int RenameByNameList(String ExistingNameListPath, String NewNameListPath)
-		{
+		public int RenameByNameList(String ExistingNameListPath, String NewNameListPath) {
 			int count = 0;
 			try {
 				String[,] fullPathes = GetRenameList(ExistingNameListPath, NewNameListPath);
@@ -62,8 +58,7 @@ namespace Renamer
 
 		// Get the list of full pathes of files/folders that will be renamed.
 		// Since there is the possibility that some files in the name list file can not be renamed successful,this function will get the actual ones.
-		public String[,] GetRenameList(String ExistingNameListPath, String NewNameListPath)
-		{
+		public String[,] GetRenameList(String ExistingNameListPath, String NewNameListPath) {
 			String[] OldFileNames = File.ReadAllLines(ExistingNameListPath, Encoding.Default);
 			String[] NewFileNames = File.ReadAllLines(NewNameListPath, Encoding.Default);
 			List<String> oldPathList = new List<String>();

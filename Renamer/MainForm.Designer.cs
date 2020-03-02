@@ -43,10 +43,10 @@ namespace Renamer
 			this.btnAction = new System.Windows.Forms.Button();
 			this.btnActionMenu = new System.Windows.Forms.Button();
 			this.menuDirAction = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.browseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openThisDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.createFileListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.updateListPathesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.browseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
 			this.gbOption.SuspendLayout();
 			this.menuDirAction.SuspendLayout();
@@ -191,35 +191,35 @@ namespace Renamer
             this.createFileListToolStripMenuItem,
             this.updateListPathesToolStripMenuItem});
 			this.menuDirAction.Name = "menuDirAction";
-			this.menuDirAction.Size = new System.Drawing.Size(185, 92);
+			this.menuDirAction.Size = new System.Drawing.Size(189, 92);
+			// 
+			// browseToolStripMenuItem
+			// 
+			this.browseToolStripMenuItem.Name = "browseToolStripMenuItem";
+			this.browseToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+			this.browseToolStripMenuItem.Text = "&Browse ...";
+			this.browseToolStripMenuItem.Click += new System.EventHandler(this.browseToolStripMenuItem_Click);
 			// 
 			// openThisDirectoryToolStripMenuItem
 			// 
 			this.openThisDirectoryToolStripMenuItem.Name = "openThisDirectoryToolStripMenuItem";
-			this.openThisDirectoryToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+			this.openThisDirectoryToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
 			this.openThisDirectoryToolStripMenuItem.Text = "&Open this directory";
 			this.openThisDirectoryToolStripMenuItem.Click += new System.EventHandler(this.openThisDirectoryToolStripMenuItem_Click);
 			// 
 			// createFileListToolStripMenuItem
 			// 
 			this.createFileListToolStripMenuItem.Name = "createFileListToolStripMenuItem";
-			this.createFileListToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+			this.createFileListToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
 			this.createFileListToolStripMenuItem.Text = "&Create file list";
 			this.createFileListToolStripMenuItem.Click += new System.EventHandler(this.createFileListToolStripMenuItem_Click);
 			// 
 			// updateListPathesToolStripMenuItem
 			// 
 			this.updateListPathesToolStripMenuItem.Name = "updateListPathesToolStripMenuItem";
-			this.updateListPathesToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+			this.updateListPathesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
 			this.updateListPathesToolStripMenuItem.Text = "&Apply to list paths";
 			this.updateListPathesToolStripMenuItem.Click += new System.EventHandler(this.updateListPathesToolStripMenuItem_Click);
-			// 
-			// browseToolStripMenuItem
-			// 
-			this.browseToolStripMenuItem.Name = "browseToolStripMenuItem";
-			this.browseToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-			this.browseToolStripMenuItem.Text = "&Browse ...";
-			this.browseToolStripMenuItem.Click += new System.EventHandler(this.browseToolStripMenuItem_Click);
 			// 
 			// folderBrowserDialog1
 			// 
@@ -243,7 +243,7 @@ namespace Renamer
 			this.Controls.Add(this.txtDirectory);
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Main Form";
+			this.Text = "Renamer";
 			this.gbOption.ResumeLayout(false);
 			this.gbOption.PerformLayout();
 			this.menuDirAction.ResumeLayout(false);

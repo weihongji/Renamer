@@ -25,6 +25,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreviewDialog));
 			this.pnlTop = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.pnlBottom = new System.Windows.Forms.Panel();
@@ -43,15 +44,15 @@
 			this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlTop.Location = new System.Drawing.Point(0, 0);
 			this.pnlTop.Name = "pnlTop";
-			this.pnlTop.Size = new System.Drawing.Size(484, 34);
+			this.pnlTop.Size = new System.Drawing.Size(484, 37);
 			this.pnlTop.TabIndex = 0;
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(3, 9);
+			this.label1.Location = new System.Drawing.Point(3, 10);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(371, 12);
+			this.label1.Size = new System.Drawing.Size(287, 13);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Following files will be renamed. Click OK button to continue.";
 			// 
@@ -60,17 +61,17 @@
 			this.pnlBottom.Controls.Add(this.btnCancel);
 			this.pnlBottom.Controls.Add(this.btnOK);
 			this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pnlBottom.Location = new System.Drawing.Point(0, 408);
+			this.pnlBottom.Location = new System.Drawing.Point(0, 442);
 			this.pnlBottom.Name = "pnlBottom";
-			this.pnlBottom.Size = new System.Drawing.Size(484, 53);
+			this.pnlBottom.Size = new System.Drawing.Size(484, 57);
 			this.pnlBottom.TabIndex = 1;
 			// 
 			// btnCancel
 			// 
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(274, 7);
+			this.btnCancel.Location = new System.Drawing.Point(274, 8);
 			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(120, 34);
+			this.btnCancel.Size = new System.Drawing.Size(120, 37);
 			this.btnCancel.TabIndex = 0;
 			this.btnCancel.Text = "&Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
@@ -78,9 +79,9 @@
 			// 
 			// btnOK
 			// 
-			this.btnOK.Location = new System.Drawing.Point(90, 7);
+			this.btnOK.Location = new System.Drawing.Point(90, 8);
 			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(120, 34);
+			this.btnOK.Size = new System.Drawing.Size(120, 37);
 			this.btnOK.TabIndex = 0;
 			this.btnOK.Text = "&OK";
 			this.btnOK.UseVisualStyleBackColor = true;
@@ -90,9 +91,9 @@
 			// 
 			this.pnlMiddle.Controls.Add(this.txtList);
 			this.pnlMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlMiddle.Location = new System.Drawing.Point(0, 34);
+			this.pnlMiddle.Location = new System.Drawing.Point(0, 37);
 			this.pnlMiddle.Name = "pnlMiddle";
-			this.pnlMiddle.Size = new System.Drawing.Size(484, 374);
+			this.pnlMiddle.Size = new System.Drawing.Size(484, 405);
 			this.pnlMiddle.TabIndex = 2;
 			// 
 			// txtList
@@ -104,7 +105,7 @@
 			this.txtList.Name = "txtList";
 			this.txtList.ReadOnly = true;
 			this.txtList.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.txtList.Size = new System.Drawing.Size(484, 374);
+			this.txtList.Size = new System.Drawing.Size(484, 405);
 			this.txtList.TabIndex = 0;
 			this.txtList.Text = "A red dog jumps over a brown fox.\r\nA RED DOG JUMPS OVER A BROWN FOX.\r\nAAAAAAAAAAA" +
     "AAAAAAAAAAAAAAAAAAAAAA\r\nlllllllllllllllllllllllllllllllll";
@@ -113,13 +114,14 @@
 			// 
 			// PreviewDialog
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(484, 461);
+			this.ClientSize = new System.Drawing.Size(484, 499);
 			this.Controls.Add(this.pnlMiddle);
 			this.Controls.Add(this.pnlBottom);
 			this.Controls.Add(this.pnlTop);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "PreviewDialog";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Preview";

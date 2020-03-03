@@ -28,6 +28,7 @@ namespace Renamer
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.txtNewName = new System.Windows.Forms.TextBox();
 			this.txtOldName = new System.Windows.Forms.TextBox();
@@ -48,9 +49,9 @@ namespace Renamer
 			this.cmbDirectory = new System.Windows.Forms.ComboBox();
 			this.pnlBottom = new System.Windows.Forms.Panel();
 			this.groupEncoding = new System.Windows.Forms.GroupBox();
-			this.lblEncoding = new System.Windows.Forms.Label();
-			this.rdoEncodingDefault = new System.Windows.Forms.RadioButton();
 			this.rdoEncodingUTF8 = new System.Windows.Forms.RadioButton();
+			this.rdoEncodingDefault = new System.Windows.Forms.RadioButton();
+			this.lblEncoding = new System.Windows.Forms.Label();
 			this.menuDirAction.SuspendLayout();
 			this.pnlTable.SuspendLayout();
 			this.pnlBrowser.SuspendLayout();
@@ -61,9 +62,9 @@ namespace Renamer
 			// txtNewName
 			// 
 			this.txtNewName.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.txtNewName.Location = new System.Drawing.Point(113, 81);
+			this.txtNewName.Location = new System.Drawing.Point(113, 88);
 			this.txtNewName.Name = "txtNewName";
-			this.txtNewName.Size = new System.Drawing.Size(408, 21);
+			this.txtNewName.Size = new System.Drawing.Size(408, 20);
 			this.txtNewName.TabIndex = 5;
 			this.txtNewName.Text = "2.txt";
 			this.toolTip1.SetToolTip(this.txtNewName, "Full path of file which has a list of new names for those file/folders.");
@@ -71,9 +72,9 @@ namespace Renamer
 			// txtOldName
 			// 
 			this.txtOldName.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.txtOldName.Location = new System.Drawing.Point(113, 49);
+			this.txtOldName.Location = new System.Drawing.Point(113, 53);
 			this.txtOldName.Name = "txtOldName";
-			this.txtOldName.Size = new System.Drawing.Size(408, 21);
+			this.txtOldName.Size = new System.Drawing.Size(408, 20);
 			this.txtOldName.TabIndex = 3;
 			this.txtOldName.Text = "1.txt";
 			this.toolTip1.SetToolTip(this.txtOldName, "Full path of file which has a list of renaming file/folders\' original names");
@@ -82,7 +83,7 @@ namespace Renamer
 			// 
 			this.btnBrowse.Location = new System.Drawing.Point(3, 0);
 			this.btnBrowse.Name = "btnBrowse";
-			this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+			this.btnBrowse.Size = new System.Drawing.Size(75, 25);
 			this.btnBrowse.TabIndex = 0;
 			this.btnBrowse.Text = "&Browse ...";
 			this.toolTip1.SetToolTip(this.btnBrowse, "Select a directory");
@@ -92,10 +93,10 @@ namespace Renamer
 			// btnSwape
 			// 
 			this.btnSwape.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.btnSwape.Location = new System.Drawing.Point(527, 67);
+			this.btnSwape.Location = new System.Drawing.Point(527, 73);
 			this.btnSwape.Name = "btnSwape";
 			this.pnlTable.SetRowSpan(this.btnSwape, 2);
-			this.btnSwape.Size = new System.Drawing.Size(75, 23);
+			this.btnSwape.Size = new System.Drawing.Size(75, 25);
 			this.btnSwape.TabIndex = 6;
 			this.btnSwape.Text = "&Swape";
 			this.toolTip1.SetToolTip(this.btnSwape, "Exchange the file in Existing/New Names.");
@@ -108,19 +109,19 @@ namespace Renamer
             this.menuOpenFolder,
             this.menuCopyFileNames});
 			this.menuDirAction.Name = "menuDirAction";
-			this.menuDirAction.Size = new System.Drawing.Size(175, 48);
+			this.menuDirAction.Size = new System.Drawing.Size(164, 48);
 			// 
 			// menuOpenFolder
 			// 
 			this.menuOpenFolder.Name = "menuOpenFolder";
-			this.menuOpenFolder.Size = new System.Drawing.Size(174, 22);
+			this.menuOpenFolder.Size = new System.Drawing.Size(163, 22);
 			this.menuOpenFolder.Text = "&Open Folder";
 			this.menuOpenFolder.Click += new System.EventHandler(this.menuOpenFolder_Click);
 			// 
 			// menuCopyFileNames
 			// 
 			this.menuCopyFileNames.Name = "menuCopyFileNames";
-			this.menuCopyFileNames.Size = new System.Drawing.Size(174, 22);
+			this.menuCopyFileNames.Size = new System.Drawing.Size(163, 22);
 			this.menuCopyFileNames.Text = "&Copy File Names";
 			this.menuCopyFileNames.Click += new System.EventHandler(this.menuCopyFileNames_Click);
 			// 
@@ -131,9 +132,9 @@ namespace Renamer
 			// btnExit
 			// 
 			this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnExit.Location = new System.Drawing.Point(340, 93);
+			this.btnExit.Location = new System.Drawing.Point(340, 101);
 			this.btnExit.Name = "btnExit";
-			this.btnExit.Size = new System.Drawing.Size(131, 34);
+			this.btnExit.Size = new System.Drawing.Size(131, 37);
 			this.btnExit.TabIndex = 1;
 			this.btnExit.Text = "E&xit";
 			this.btnExit.UseVisualStyleBackColor = true;
@@ -141,9 +142,9 @@ namespace Renamer
 			// 
 			// btnRename
 			// 
-			this.btnRename.Location = new System.Drawing.Point(144, 93);
+			this.btnRename.Location = new System.Drawing.Point(144, 101);
 			this.btnRename.Name = "btnRename";
-			this.btnRename.Size = new System.Drawing.Size(131, 34);
+			this.btnRename.Size = new System.Drawing.Size(131, 37);
 			this.btnRename.TabIndex = 0;
 			this.btnRename.Text = "&Rename";
 			this.btnRename.UseVisualStyleBackColor = true;
@@ -153,10 +154,10 @@ namespace Renamer
 			// 
 			this.lblNewList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.lblNewList.AutoSize = true;
-			this.lblNewList.Location = new System.Drawing.Point(42, 78);
+			this.lblNewList.Location = new System.Drawing.Point(39, 85);
 			this.lblNewList.Name = "lblNewList";
 			this.lblNewList.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-			this.lblNewList.Size = new System.Drawing.Size(65, 17);
+			this.lblNewList.Size = new System.Drawing.Size(68, 18);
 			this.lblNewList.TabIndex = 4;
 			this.lblNewList.Text = "&New Names:";
 			// 
@@ -164,10 +165,10 @@ namespace Renamer
 			// 
 			this.lblOrigList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.lblOrigList.AutoSize = true;
-			this.lblOrigList.Location = new System.Drawing.Point(12, 46);
+			this.lblOrigList.Location = new System.Drawing.Point(25, 50);
 			this.lblOrigList.Name = "lblOrigList";
 			this.lblOrigList.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-			this.lblOrigList.Size = new System.Drawing.Size(95, 17);
+			this.lblOrigList.Size = new System.Drawing.Size(82, 18);
 			this.lblOrigList.TabIndex = 3;
 			this.lblOrigList.Text = "&Existing Names:";
 			// 
@@ -177,7 +178,7 @@ namespace Renamer
 			this.btnActionMenu.Font = new System.Drawing.Font("Marlett", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.btnActionMenu.Location = new System.Drawing.Point(80, 0);
 			this.btnActionMenu.Name = "btnActionMenu";
-			this.btnActionMenu.Size = new System.Drawing.Size(23, 23);
+			this.btnActionMenu.Size = new System.Drawing.Size(23, 25);
 			this.btnActionMenu.TabIndex = 1;
 			this.btnActionMenu.Text = "4";
 			this.btnActionMenu.UseVisualStyleBackColor = true;
@@ -187,10 +188,10 @@ namespace Renamer
 			// 
 			this.lblDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.lblDirectory.AutoSize = true;
-			this.lblDirectory.Location = new System.Drawing.Point(42, 9);
+			this.lblDirectory.Location = new System.Drawing.Point(55, 10);
 			this.lblDirectory.Name = "lblDirectory";
-			this.lblDirectory.Padding = new System.Windows.Forms.Padding(0, 9, 0, 0);
-			this.lblDirectory.Size = new System.Drawing.Size(65, 21);
+			this.lblDirectory.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+			this.lblDirectory.Size = new System.Drawing.Size(52, 23);
 			this.lblDirectory.TabIndex = 1;
 			this.lblDirectory.Text = "&Directory:";
 			// 
@@ -212,12 +213,12 @@ namespace Renamer
 			this.pnlTable.Location = new System.Drawing.Point(0, 0);
 			this.pnlTable.Name = "pnlTable";
 			this.pnlTable.RowCount = 4;
-			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
-			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.pnlTable.Size = new System.Drawing.Size(684, 112);
+			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+			this.pnlTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+			this.pnlTable.Size = new System.Drawing.Size(684, 121);
 			this.pnlTable.TabIndex = 0;
 			// 
 			// pnlBrowser
@@ -225,19 +226,19 @@ namespace Renamer
 			this.pnlBrowser.Controls.Add(this.btnBrowse);
 			this.pnlBrowser.Controls.Add(this.btnActionMenu);
 			this.pnlBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlBrowser.Location = new System.Drawing.Point(527, 12);
+			this.pnlBrowser.Location = new System.Drawing.Point(527, 13);
 			this.pnlBrowser.Name = "pnlBrowser";
-			this.pnlBrowser.Size = new System.Drawing.Size(154, 31);
+			this.pnlBrowser.Size = new System.Drawing.Size(154, 34);
 			this.pnlBrowser.TabIndex = 2;
 			// 
 			// cmbDirectory
 			// 
 			this.cmbDirectory.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cmbDirectory.FormattingEnabled = true;
-			this.cmbDirectory.Location = new System.Drawing.Point(113, 16);
-			this.cmbDirectory.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+			this.cmbDirectory.Location = new System.Drawing.Point(113, 18);
+			this.cmbDirectory.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
 			this.cmbDirectory.Name = "cmbDirectory";
-			this.cmbDirectory.Size = new System.Drawing.Size(408, 20);
+			this.cmbDirectory.Size = new System.Drawing.Size(408, 21);
 			this.cmbDirectory.TabIndex = 1;
 			// 
 			// pnlBottom
@@ -246,9 +247,9 @@ namespace Renamer
 			this.pnlBottom.Controls.Add(this.btnExit);
 			this.pnlBottom.Controls.Add(this.btnRename);
 			this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlBottom.Location = new System.Drawing.Point(0, 112);
+			this.pnlBottom.Location = new System.Drawing.Point(0, 121);
 			this.pnlBottom.Name = "pnlBottom";
-			this.pnlBottom.Size = new System.Drawing.Size(684, 139);
+			this.pnlBottom.Size = new System.Drawing.Size(684, 151);
 			this.pnlBottom.TabIndex = 1;
 			// 
 			// groupEncoding
@@ -256,56 +257,57 @@ namespace Renamer
 			this.groupEncoding.Controls.Add(this.rdoEncodingUTF8);
 			this.groupEncoding.Controls.Add(this.rdoEncodingDefault);
 			this.groupEncoding.Controls.Add(this.lblEncoding);
-			this.groupEncoding.Location = new System.Drawing.Point(113, 6);
+			this.groupEncoding.Location = new System.Drawing.Point(113, 7);
 			this.groupEncoding.Name = "groupEncoding";
-			this.groupEncoding.Size = new System.Drawing.Size(408, 66);
+			this.groupEncoding.Size = new System.Drawing.Size(408, 72);
 			this.groupEncoding.TabIndex = 2;
 			this.groupEncoding.TabStop = false;
 			this.groupEncoding.Text = "Encoding";
 			// 
-			// lblEncoding
-			// 
-			this.lblEncoding.AutoSize = true;
-			this.lblEncoding.Location = new System.Drawing.Point(16, 40);
-			this.lblEncoding.Name = "lblEncoding";
-			this.lblEncoding.Size = new System.Drawing.Size(263, 12);
-			this.lblEncoding.TabIndex = 0;
-			this.lblEncoding.Text = "The two list files mush have same encoding.";
-			// 
-			// rdoEncodingDefault
-			// 
-			this.rdoEncodingDefault.AutoSize = true;
-			this.rdoEncodingDefault.Checked = true;
-			this.rdoEncodingDefault.Location = new System.Drawing.Point(70, 18);
-			this.rdoEncodingDefault.Name = "rdoEncodingDefault";
-			this.rdoEncodingDefault.Size = new System.Drawing.Size(65, 16);
-			this.rdoEncodingDefault.TabIndex = 1;
-			this.rdoEncodingDefault.TabStop = true;
-			this.rdoEncodingDefault.Text = "Default";
-			this.rdoEncodingDefault.UseVisualStyleBackColor = true;
-			// 
 			// rdoEncodingUTF8
 			// 
 			this.rdoEncodingUTF8.AutoSize = true;
-			this.rdoEncodingUTF8.Location = new System.Drawing.Point(197, 17);
+			this.rdoEncodingUTF8.Location = new System.Drawing.Point(197, 18);
 			this.rdoEncodingUTF8.Name = "rdoEncodingUTF8";
-			this.rdoEncodingUTF8.Size = new System.Drawing.Size(53, 16);
+			this.rdoEncodingUTF8.Size = new System.Drawing.Size(55, 17);
 			this.rdoEncodingUTF8.TabIndex = 2;
 			this.rdoEncodingUTF8.TabStop = true;
 			this.rdoEncodingUTF8.Text = "UTF-8";
 			this.rdoEncodingUTF8.UseVisualStyleBackColor = true;
 			// 
+			// rdoEncodingDefault
+			// 
+			this.rdoEncodingDefault.AutoSize = true;
+			this.rdoEncodingDefault.Checked = true;
+			this.rdoEncodingDefault.Location = new System.Drawing.Point(70, 20);
+			this.rdoEncodingDefault.Name = "rdoEncodingDefault";
+			this.rdoEncodingDefault.Size = new System.Drawing.Size(59, 17);
+			this.rdoEncodingDefault.TabIndex = 1;
+			this.rdoEncodingDefault.TabStop = true;
+			this.rdoEncodingDefault.Text = "Default";
+			this.rdoEncodingDefault.UseVisualStyleBackColor = true;
+			// 
+			// lblEncoding
+			// 
+			this.lblEncoding.AutoSize = true;
+			this.lblEncoding.Location = new System.Drawing.Point(16, 43);
+			this.lblEncoding.Name = "lblEncoding";
+			this.lblEncoding.Size = new System.Drawing.Size(215, 13);
+			this.lblEncoding.TabIndex = 0;
+			this.lblEncoding.Text = "The two list files mush have same encoding.";
+			// 
 			// MainForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnExit;
-			this.ClientSize = new System.Drawing.Size(684, 251);
+			this.ClientSize = new System.Drawing.Size(684, 272);
 			this.Controls.Add(this.pnlBottom);
 			this.Controls.Add(this.pnlTable);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(1600, 300);
-			this.MinimumSize = new System.Drawing.Size(650, 290);
+			this.MaximumSize = new System.Drawing.Size(1600, 322);
+			this.MinimumSize = new System.Drawing.Size(650, 311);
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Renamer";

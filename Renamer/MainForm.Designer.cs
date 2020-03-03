@@ -52,6 +52,7 @@ namespace Renamer
 			this.rdoEncodingUTF8 = new System.Windows.Forms.RadioButton();
 			this.rdoEncodingDefault = new System.Windows.Forms.RadioButton();
 			this.lblEncoding = new System.Windows.Forms.Label();
+			this.chkOnTop = new System.Windows.Forms.CheckBox();
 			this.menuDirAction.SuspendLayout();
 			this.pnlTable.SuspendLayout();
 			this.pnlBrowser.SuspendLayout();
@@ -61,6 +62,7 @@ namespace Renamer
 			// 
 			// txtNewName
 			// 
+			this.txtNewName.AllowDrop = true;
 			this.txtNewName.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.txtNewName.Location = new System.Drawing.Point(113, 88);
 			this.txtNewName.Name = "txtNewName";
@@ -68,9 +70,12 @@ namespace Renamer
 			this.txtNewName.TabIndex = 5;
 			this.txtNewName.Text = "2.txt";
 			this.toolTip1.SetToolTip(this.txtNewName, "Full path of file which has a list of new names for those file/folders.");
+			this.txtNewName.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtNewName_DragDrop);
+			this.txtNewName.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtNewName_DragEnter);
 			// 
 			// txtOldName
 			// 
+			this.txtOldName.AllowDrop = true;
 			this.txtOldName.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.txtOldName.Location = new System.Drawing.Point(113, 53);
 			this.txtOldName.Name = "txtOldName";
@@ -78,6 +83,8 @@ namespace Renamer
 			this.txtOldName.TabIndex = 3;
 			this.txtOldName.Text = "1.txt";
 			this.toolTip1.SetToolTip(this.txtOldName, "Full path of file which has a list of renaming file/folders\' original names");
+			this.txtOldName.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtOldName_DragDrop);
+			this.txtOldName.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtOldName_DragEnter);
 			// 
 			// btnBrowse
 			// 
@@ -243,6 +250,7 @@ namespace Renamer
 			// 
 			// pnlBottom
 			// 
+			this.pnlBottom.Controls.Add(this.chkOnTop);
 			this.pnlBottom.Controls.Add(this.groupEncoding);
 			this.pnlBottom.Controls.Add(this.btnExit);
 			this.pnlBottom.Controls.Add(this.btnRename);
@@ -296,11 +304,21 @@ namespace Renamer
 			this.lblEncoding.TabIndex = 0;
 			this.lblEncoding.Text = "The two list files mush have same encoding.";
 			// 
+			// chkOnTop
+			// 
+			this.chkOnTop.AutoSize = true;
+			this.chkOnTop.Location = new System.Drawing.Point(542, 16);
+			this.chkOnTop.Name = "chkOnTop";
+			this.chkOnTop.Size = new System.Drawing.Size(96, 17);
+			this.chkOnTop.TabIndex = 3;
+			this.chkOnTop.Text = "Always on Top";
+			this.chkOnTop.UseVisualStyleBackColor = true;
+			this.chkOnTop.Click += new System.EventHandler(this.chkOnTop_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.CancelButton = this.btnExit;
 			this.ClientSize = new System.Drawing.Size(684, 272);
 			this.Controls.Add(this.pnlBottom);
 			this.Controls.Add(this.pnlTable);
@@ -316,6 +334,7 @@ namespace Renamer
 			this.pnlTable.PerformLayout();
 			this.pnlBrowser.ResumeLayout(false);
 			this.pnlBottom.ResumeLayout(false);
+			this.pnlBottom.PerformLayout();
 			this.groupEncoding.ResumeLayout(false);
 			this.groupEncoding.PerformLayout();
 			this.ResumeLayout(false);
@@ -347,6 +366,7 @@ namespace Renamer
 		private System.Windows.Forms.RadioButton rdoEncodingUTF8;
 		private System.Windows.Forms.RadioButton rdoEncodingDefault;
 		private System.Windows.Forms.Label lblEncoding;
+		private System.Windows.Forms.CheckBox chkOnTop;
 	}
 }
 

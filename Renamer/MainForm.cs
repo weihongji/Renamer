@@ -79,6 +79,9 @@ namespace Renamer
 			if ((width >= this.MinimumSize.Width || this.MinimumSize.Width == 0) && (width <= this.MaximumSize.Width || this.MaximumSize.Width == 0)) {
 				this.Width = width;
 			}
+			var onTop = GetConfigBool("OnTop");
+			this.chkOnTop.Checked = onTop;
+			chkOnTop_Click(null, null);
 		}
 
 		#region Control Events
@@ -206,6 +209,47 @@ namespace Renamer
 			Application.Exit();
 		}
 
+		private void txtOldName_DragEnter(object sender, DragEventArgs e) {
+			if (e.Data.GetDataPresent(DataFormats.FileDrop)) {
+				e.Effect = DragDropEffects.Link;
+			}
+		}
+
+		private void txtOldName_DragDrop(object sender, DragEventArgs e) {
+			string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
+			if (files != null) {
+				if (files.Length == 1) {
+					this.txtOldName.Text = GetRelativePath(files[0], this.Folder);
+				}
+				else if (files.Length >= 2) {
+					this.txtOldName.Text = GetRelativePath(files[0], this.Folder);
+					this.txtNewName.Text = GetRelativePath(files[1], this.Folder);
+				}
+			}
+		}
+
+		private void txtNewName_DragEnter(object sender, DragEventArgs e) {
+			if (e.Data.GetDataPresent(DataFormats.FileDrop)) {
+				e.Effect = DragDropEffects.Link;
+			}
+		}
+
+		private void txtNewName_DragDrop(object sender, DragEventArgs e) {
+			string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
+			if (files != null) {
+				if (files.Length == 1) {
+					this.txtNewName.Text = GetRelativePath(files[0], this.Folder);
+				}
+				else if (files.Length >= 2) {
+					this.txtOldName.Text = GetRelativePath(files[0], this.Folder);
+					this.txtNewName.Text = GetRelativePath(files[1], this.Folder);
+				}
+			}
+		}
+
+		private void chkOnTop_Click(object sender, EventArgs e) {
+			this.TopMost = this.chkOnTop.Checked;
+		}
 		#endregion
 
 		#region Methods
@@ -397,6 +441,20 @@ namespace Renamer
 			}
 			return defaultValue;
 		}
+
+		private string GetRelativePath(string path, string relativeTo) {
+			if (relativeTo == null || relativeTo.Trim().Length == 0) {
+				return path;
+			}
+			if (!relativeTo.EndsWith("\\")) {
+				relativeTo += "\\";
+			}
+			if (path.StartsWith(relativeTo)) {
+				path = path.Substring(relativeTo.Length);
+			}
+			return path;
+		}
 		#endregion
+
 	}
 }

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Threading;
 
 namespace Renamer
 {
@@ -13,6 +15,10 @@ namespace Renamer
 		static void Main() {
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+			var lang = MainForm.GetConfigString("Lang", "EN");
+			if (lang == "CN") {
+				Thread.CurrentThread.CurrentUICulture = new CultureInfo("zh-CN");
+			}
 			Application.Run(new MainForm());
 		}
 	}

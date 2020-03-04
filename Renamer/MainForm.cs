@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using System.Resources;
 
 namespace Renamer
 {
@@ -105,17 +106,17 @@ namespace Renamer
 
 			var msg = CheckList();
 			if (msg.Length > 0) {
-				int lineCount = 0;
+				int lineCount = 1;
 				foreach (var ch in msg) {
 					if (ch == '\n') {
 						lineCount++;
 					}
 				}
-				if (lineCount <= 2) {
-					MessageBox.Show(msg, "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				if (lineCount < 2) {
+					MessageBox.Show(msg, Res.Get("mainform_problem"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 				else {
-					var form = new InfoDialog(msg) { Title = "Problem" };
+					var form = new InfoDialog(msg) { Title = Res.Get("mainform_problem") };
 					form.ShowDialog(this);
 				}
 				return;
@@ -133,7 +134,7 @@ namespace Renamer
 				for (int i = 0; i < this.OldNames.Count; i++) {
 					var n1 = this.OldNames[i];
 					var n2 = this.NewNames[i];
-					lastEntry = String.Format("Error happened when renaming \"{0}\" to \"{1}\":\r\n" + new String('-', 60), n1.Name, n2.Name);
+					lastEntry = String.Format(Res.Get("mainform_error_when_renaming_format") + "\r\n" + new String('-', 60), n1.Name, n2.Name);
 					if (n1.Type == EntryType.Directory) {
 						Directory.Move(n1.Path, n2.Path);
 						count++;
@@ -149,12 +150,12 @@ namespace Renamer
 			}
 			finally {
 				if (msg.Length == 0) { // Success
-					msg = String.Format("{0} files and folders have been renamed.", count).PadRight(80);
-					MessageBox.Show(msg, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					msg = String.Format(Res.Get("mainform_files_renamed_format"), count);
+					MessageBox.Show(msg, Res.Get("mainform_success"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 				else { // Exception caught
-					msg = String.Format("{0} files and folders have been renamed.\r\n\r\n{1}", count, msg);
-					MessageBox.Show(msg, "Failed to Rename", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					msg = String.Format(Res.Get("mainform_files_renamed_format") + "\r\n\r\n{1}", count, msg);
+					MessageBox.Show(msg, Res.Get("mainform_fail_to_rename"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
@@ -188,7 +189,7 @@ namespace Renamer
 					Clipboard.SetText(String.Join("\r\n", names));
 				}
 				else {
-					MessageBox.Show("No file or directory in " + this.Folder, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show(String.Format(Res.Get("mainform_no_file_in_dir_format"), this.Folder), this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 			}
 		}
@@ -257,14 +258,14 @@ namespace Renamer
 			String msg = "";
 
 			if (this.Folder == "") {
-				msg = "Directory is empty.".PadRight(40);
+				msg = Res.Get("mainform_folder_missing").PadRight(40);
 			}
 			else if (!Directory.Exists(this.Folder)) {
-				msg = "Directory doesn't exist.".PadRight(40);
+				msg = Res.Get("mainform_dir_not_exist").PadRight(40);
 			}
 
 			if (msg.Length > 0) {
-				MessageBox.Show(msg, "Invalid Directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(msg, Res.Get("mainform_invalid_dir"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.cmbDirectory.Focus();
 				return false;
 			}
@@ -276,14 +277,14 @@ namespace Renamer
 			String msg = "";
 
 			if (file == "") {
-				msg = "File path is empty.".PadRight(40);
+				msg = Res.Get("mainform_file_path_empty").PadRight(40);
 			}
 			else if (!File.Exists(file)) {
-				msg = "File " + GetFileName(file) + " doesn't exist.".PadRight(40);
+				msg = Res.Get(String.Format("mainform_file_not_exist_format", GetFileName(file))).PadRight(40);
 			}
 
 			if (msg.Length > 0) {
-				MessageBox.Show(msg, "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(msg, Res.Get("mainform_file_not_found"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
 
@@ -335,10 +336,10 @@ namespace Renamer
 			var list1 = GetList(this.File1);
 			var list2 = GetList(this.File2);
 			if (list1.Count != list2.Count) {
-				messages.Add(String.Format("Number of files are not match. (Old: {0}, New: {1})", list1.Count, list2.Count));
+				messages.Add(String.Format(Res.Get("mainform_files_count_no_match_format"), list1.Count, list2.Count));
 			}
 			else if (list1.Count == 0) {
-				messages.Add("Nothing in the list files.");
+				messages.Add(Res.Get("mainform_list_file_empty"));
 			}
 
 			if (messages.Count > 0) {
@@ -360,7 +361,7 @@ namespace Renamer
 				}
 			}
 			if (items.Count > 0) {
-				messages.Add("Following files don't exist:");
+				messages.Add(Res.Get("mainform_following_files_not_exist"));
 				messages.AddRange(items);
 			}
 
@@ -374,7 +375,7 @@ namespace Renamer
 				if (messages.Count > 0) {
 					messages.Add("\r\n");
 				}
-				messages.Add("Following files already exist and cannot be used as new name:");
+				messages.Add(Res.Get("mainform_following_files_already_exist"));
 				messages.AddRange(items);
 			}
 
@@ -411,7 +412,7 @@ namespace Renamer
 			this.cmbDirectory.Items.Insert(0, text);
 		}
 
-		private static string GetConfigString(string key, string defaultValue = "") {
+		public static string GetConfigString(string key, string defaultValue = "") {
 			var config = System.Configuration.ConfigurationManager.AppSettings[key];
 
 			if (!string.IsNullOrEmpty(config)) {
@@ -420,7 +421,7 @@ namespace Renamer
 			return defaultValue;
 		}
 
-		private static int GetConfigInt(string key, int defaultValue = 0) {
+		public static int GetConfigInt(string key, int defaultValue = 0) {
 			var config = System.Configuration.ConfigurationManager.AppSettings[key];
 
 			int i;
@@ -432,7 +433,7 @@ namespace Renamer
 			return defaultValue;
 		}
 
-		private static bool GetConfigBool(string key, bool defaultValue = false) {
+		public static bool GetConfigBool(string key, bool defaultValue = false) {
 			var config = System.Configuration.ConfigurationManager.AppSettings[key];
 
 			bool b;

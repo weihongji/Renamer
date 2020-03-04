@@ -280,7 +280,7 @@ namespace Renamer
 				msg = Res.Get("mainform_file_path_empty").PadRight(40);
 			}
 			else if (!File.Exists(file)) {
-				msg = Res.Get(String.Format("mainform_file_not_exist_format", GetFileName(file))).PadRight(40);
+				msg = String.Format(Res.Get("mainform_file_not_exist_format"), GetFileName(file)).PadRight(40);
 			}
 
 			if (msg.Length > 0) {

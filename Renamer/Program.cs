@@ -15,8 +15,11 @@ namespace Renamer
 		static void Main() {
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			var lang = MainForm.GetConfigString("Lang", "EN");
-			if (lang == "CN") {
+			var lang = MainForm.GetConfigString("Lang");
+			if (lang == "EN") {
+				Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultures(CultureTypes.NeutralCultures)[0];
+			}
+			else if (lang == "CN") {
 				Thread.CurrentThread.CurrentUICulture = new CultureInfo("zh-CN");
 			}
 			Application.Run(new MainForm());

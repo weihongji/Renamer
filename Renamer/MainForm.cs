@@ -338,8 +338,17 @@ namespace Renamer
 			if (list1.Count != list2.Count) {
 				messages.Add(String.Format(Res.Get("mainform_files_count_no_match_format"), list1.Count, list2.Count));
 			}
-			else if (list1.Count == 0) {
-				messages.Add(Res.Get("mainform_list_file_empty"));
+			else {
+				// Remove unchanged entries
+				for (int i = list1.Count - 1; i >= 0; i--) {
+					if (list1[i].Equals(list2[i], StringComparison.InvariantCultureIgnoreCase)) {
+						list1.RemoveAt(i);
+						list2.RemoveAt(i);
+					}
+				}
+				if (list1.Count == 0) {
+					messages.Add(Res.Get("mainform_list_file_empty"));
+				}
 			}
 
 			if (messages.Count > 0) {
@@ -350,10 +359,6 @@ namespace Renamer
 			this.NewNames.Clear();
 			var dir = this.Folder;
 			for (int i = 0; i < list1.Count; i++) {
-				// Ignore same entries
-				if (list1[i].Equals(list2[i], StringComparison.InvariantCultureIgnoreCase)) {
-					continue;
-				}
 				this.OldNames.Add(new FileEntry(Path.Combine(dir, list1[i])));
 				this.NewNames.Add(new FileEntry(Path.Combine(dir, list2[i])));
 			}

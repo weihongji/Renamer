@@ -40,8 +40,8 @@
 			// 
 			// pnlTop
 			// 
-			resources.ApplyResources(this.pnlTop, "pnlTop");
 			this.pnlTop.Controls.Add(this.label1);
+			resources.ApplyResources(this.pnlTop, "pnlTop");
 			this.pnlTop.Name = "pnlTop";
 			// 
 			// label1
@@ -51,15 +51,15 @@
 			// 
 			// pnlBottom
 			// 
-			resources.ApplyResources(this.pnlBottom, "pnlBottom");
 			this.pnlBottom.Controls.Add(this.btnCancel);
 			this.pnlBottom.Controls.Add(this.btnOK);
+			resources.ApplyResources(this.pnlBottom, "pnlBottom");
 			this.pnlBottom.Name = "pnlBottom";
 			// 
 			// btnCancel
 			// 
-			resources.ApplyResources(this.btnCancel, "btnCancel");
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			resources.ApplyResources(this.btnCancel, "btnCancel");
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
 			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -73,8 +73,8 @@
 			// 
 			// pnlMiddle
 			// 
-			resources.ApplyResources(this.pnlMiddle, "pnlMiddle");
 			this.pnlMiddle.Controls.Add(this.txtList);
+			resources.ApplyResources(this.pnlMiddle, "pnlMiddle");
 			this.pnlMiddle.Name = "pnlMiddle";
 			// 
 			// txtList

@@ -350,6 +350,10 @@ namespace Renamer
 			this.NewNames.Clear();
 			var dir = this.Folder;
 			for (int i = 0; i < list1.Count; i++) {
+				// Ignore same entries
+				if (list1[i].Equals(list2[i], StringComparison.InvariantCultureIgnoreCase)) {
+					continue;
+				}
 				this.OldNames.Add(new FileEntry(Path.Combine(dir, list1[i])));
 				this.NewNames.Add(new FileEntry(Path.Combine(dir, list2[i])));
 			}
@@ -389,11 +393,12 @@ namespace Renamer
 					maxChar = entry.Name.Length;
 				}
 			}
+			int indexMaxChar = this.OldNames.Count.ToString().Length;
 			List<String> items = new List<String>();
 			for (int i = 0; i < this.OldNames.Count; i++) {
 				var n1 = this.OldNames[i];
 				var n2 = this.NewNames[i];
-				items.Add(String.Format("{0} -->  {1}", n1.Name.PadRight(maxChar), n2.Name));
+				items.Add(String.Format("[{2}] {0} -->  {1}", n1.Name.PadRight(maxChar), n2.Name, (i + 1).ToString().PadLeft(indexMaxChar)));
 			}
 			var dialog = new PreviewDialog(String.Join("\r\n", items.ToArray()));
 			var result = dialog.ShowDialog(this);

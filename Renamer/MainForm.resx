@@ -234,8 +234,14 @@
   <data name="menuCopyFileNames.Text" xml:space="preserve">
     <value>&amp;Copy File Names</value>
   </data>
+  <data name="menuAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="menuAbout.Text" xml:space="preserve">
+    <value>&amp;About</value>
+  </data>
   <data name="menuDirAction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 48</value>
+    <value>164, 70</value>
   </data>
   <data name="&gt;&gt;menuDirAction.Name" xml:space="preserve">
     <value>menuDirAction</value>
@@ -974,6 +980,12 @@
     <value>menuCopyFileNames</value>
   </data>
   <data name="&gt;&gt;menuCopyFileNames.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuAbout.Name" xml:space="preserve">
+    <value>menuAbout</value>
+  </data>
+  <data name="&gt;&gt;menuAbout.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;browserDialog.Name" xml:space="preserve">

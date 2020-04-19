@@ -61,6 +61,33 @@ namespace Renamer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Renamer.
+        /// </summary>
+        internal static string about_product {
+            get {
+                return ResourceManager.GetString("about_product", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About {0}.
+        /// </summary>
+        internal static string about_title {
+            get {
+                return ResourceManager.GetString("about_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version {0}.
+        /// </summary>
+        internal static string about_version {
+            get {
+                return ResourceManager.GetString("about_version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Directory doesn&apos;t exist..
         /// </summary>
         internal static string mainform_dir_not_exist {

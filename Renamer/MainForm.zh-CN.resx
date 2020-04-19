@@ -133,8 +133,14 @@
   <data name="menuCopyFileNames.Text" xml:space="preserve">
     <value>复制文件名</value>
   </data>
+  <data name="menuAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="menuAbout.Text" xml:space="preserve">
+    <value>关于(&amp;A)</value>
+  </data>
   <data name="menuDirAction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 48</value>
+    <value>136, 70</value>
   </data>
   <data name="lblDirectory.Location" type="System.Drawing.Point, System.Drawing">
     <value>76, 10</value>

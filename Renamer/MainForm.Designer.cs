@@ -37,6 +37,7 @@ namespace Renamer
 			this.menuDirAction = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.menuOpenFolder = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuCopyFileNames = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
 			this.btnExit = new System.Windows.Forms.Button();
 			this.btnRename = new System.Windows.Forms.Button();
 			this.lblNewList = new System.Windows.Forms.Label();
@@ -99,7 +100,8 @@ namespace Renamer
 			// 
 			this.menuDirAction.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuOpenFolder,
-            this.menuCopyFileNames});
+            this.menuCopyFileNames,
+            this.menuAbout});
 			this.menuDirAction.Name = "menuDirAction";
 			resources.ApplyResources(this.menuDirAction, "menuDirAction");
 			// 
@@ -114,6 +116,12 @@ namespace Renamer
 			this.menuCopyFileNames.Name = "menuCopyFileNames";
 			resources.ApplyResources(this.menuCopyFileNames, "menuCopyFileNames");
 			this.menuCopyFileNames.Click += new System.EventHandler(this.menuCopyFileNames_Click);
+			// 
+			// menuAbout
+			// 
+			this.menuAbout.Name = "menuAbout";
+			resources.ApplyResources(this.menuAbout, "menuAbout");
+			this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
 			// 
 			// btnExit
 			// 
@@ -274,6 +282,7 @@ namespace Renamer
 		private System.Windows.Forms.RadioButton rdoEncodingDefault;
 		private System.Windows.Forms.Label lblEncoding;
 		private System.Windows.Forms.CheckBox chkOnTop;
+		private System.Windows.Forms.ToolStripMenuItem menuAbout;
 	}
 }
 

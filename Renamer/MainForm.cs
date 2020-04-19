@@ -200,6 +200,11 @@ namespace Renamer
 			}
 		}
 
+		private void menuAbout_Click(object sender, EventArgs e) {
+			var about = new 关于();
+			about.ShowDialog(this);
+		}
+
 		private void btnSwape_Click(object sender, EventArgs e) {
 			var s = this.txtOldName.Text;
 			this.txtOldName.Text = this.txtNewName.Text;

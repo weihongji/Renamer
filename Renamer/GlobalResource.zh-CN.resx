@@ -165,4 +165,13 @@
   <data name="mainform_success" xml:space="preserve">
     <value>成功</value>
   </data>
+  <data name="about_title" xml:space="preserve">
+    <value>关于{0}</value>
+  </data>
+  <data name="about_version" xml:space="preserve">
+    <value>版本: {0}</value>
+  </data>
+  <data name="about_product" xml:space="preserve">
+    <value>文件改名</value>
+  </data>
 </root>

@@ -165,4 +165,13 @@
   <data name="mainform_success" xml:space="preserve">
     <value>Success</value>
   </data>
+  <data name="about_product" xml:space="preserve">
+    <value>Renamer</value>
+  </data>
+  <data name="about_title" xml:space="preserve">
+    <value>About {0}</value>
+  </data>
+  <data name="about_version" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
 </root>

@@ -37,7 +37,6 @@ namespace Renamer
 			this.menuDirAction = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.menuOpenFolder = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuCopyFileNames = new System.Windows.Forms.ToolStripMenuItem();
-			this.browserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.btnExit = new System.Windows.Forms.Button();
 			this.btnRename = new System.Windows.Forms.Button();
 			this.lblNewList = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@ namespace Renamer
 			this.rdoEncodingUTF8 = new System.Windows.Forms.RadioButton();
 			this.rdoEncodingDefault = new System.Windows.Forms.RadioButton();
 			this.lblEncoding = new System.Windows.Forms.Label();
+			this.browserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.menuDirAction.SuspendLayout();
 			this.pnlTable.SuspendLayout();
 			this.pnlBrowser.SuspendLayout();
@@ -62,8 +62,8 @@ namespace Renamer
 			// 
 			// txtNewName
 			// 
-			resources.ApplyResources(this.txtNewName, "txtNewName");
 			this.txtNewName.AllowDrop = true;
+			resources.ApplyResources(this.txtNewName, "txtNewName");
 			this.txtNewName.Name = "txtNewName";
 			this.toolTip1.SetToolTip(this.txtNewName, resources.GetString("txtNewName.ToolTip"));
 			this.txtNewName.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtNewName_DragDrop);
@@ -71,8 +71,8 @@ namespace Renamer
 			// 
 			// txtOldName
 			// 
-			resources.ApplyResources(this.txtOldName, "txtOldName");
 			this.txtOldName.AllowDrop = true;
+			resources.ApplyResources(this.txtOldName, "txtOldName");
 			this.txtOldName.Name = "txtOldName";
 			this.toolTip1.SetToolTip(this.txtOldName, resources.GetString("txtOldName.ToolTip"));
 			this.txtOldName.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtOldName_DragDrop);
@@ -97,36 +97,29 @@ namespace Renamer
 			// 
 			// menuDirAction
 			// 
-			resources.ApplyResources(this.menuDirAction, "menuDirAction");
 			this.menuDirAction.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuOpenFolder,
             this.menuCopyFileNames});
 			this.menuDirAction.Name = "menuDirAction";
-			this.toolTip1.SetToolTip(this.menuDirAction, resources.GetString("menuDirAction.ToolTip"));
+			resources.ApplyResources(this.menuDirAction, "menuDirAction");
 			// 
 			// menuOpenFolder
 			// 
-			resources.ApplyResources(this.menuOpenFolder, "menuOpenFolder");
 			this.menuOpenFolder.Name = "menuOpenFolder";
+			resources.ApplyResources(this.menuOpenFolder, "menuOpenFolder");
 			this.menuOpenFolder.Click += new System.EventHandler(this.menuOpenFolder_Click);
 			// 
 			// menuCopyFileNames
 			// 
-			resources.ApplyResources(this.menuCopyFileNames, "menuCopyFileNames");
 			this.menuCopyFileNames.Name = "menuCopyFileNames";
+			resources.ApplyResources(this.menuCopyFileNames, "menuCopyFileNames");
 			this.menuCopyFileNames.Click += new System.EventHandler(this.menuCopyFileNames_Click);
-			// 
-			// browserDialog
-			// 
-			resources.ApplyResources(this.browserDialog, "browserDialog");
-			this.browserDialog.ShowNewFolderButton = false;
 			// 
 			// btnExit
 			// 
-			resources.ApplyResources(this.btnExit, "btnExit");
 			this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			resources.ApplyResources(this.btnExit, "btnExit");
 			this.btnExit.Name = "btnExit";
-			this.toolTip1.SetToolTip(this.btnExit, resources.GetString("btnExit.ToolTip"));
 			this.btnExit.UseVisualStyleBackColor = true;
 			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
 			// 
@@ -134,7 +127,6 @@ namespace Renamer
 			// 
 			resources.ApplyResources(this.btnRename, "btnRename");
 			this.btnRename.Name = "btnRename";
-			this.toolTip1.SetToolTip(this.btnRename, resources.GetString("btnRename.ToolTip"));
 			this.btnRename.UseVisualStyleBackColor = true;
 			this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
 			// 
@@ -142,20 +134,17 @@ namespace Renamer
 			// 
 			resources.ApplyResources(this.lblNewList, "lblNewList");
 			this.lblNewList.Name = "lblNewList";
-			this.toolTip1.SetToolTip(this.lblNewList, resources.GetString("lblNewList.ToolTip"));
 			// 
 			// lblOrigList
 			// 
 			resources.ApplyResources(this.lblOrigList, "lblOrigList");
 			this.lblOrigList.Name = "lblOrigList";
-			this.toolTip1.SetToolTip(this.lblOrigList, resources.GetString("lblOrigList.ToolTip"));
 			// 
 			// btnActionMenu
 			// 
-			resources.ApplyResources(this.btnActionMenu, "btnActionMenu");
 			this.btnActionMenu.ContextMenuStrip = this.menuDirAction;
+			resources.ApplyResources(this.btnActionMenu, "btnActionMenu");
 			this.btnActionMenu.Name = "btnActionMenu";
-			this.toolTip1.SetToolTip(this.btnActionMenu, resources.GetString("btnActionMenu.ToolTip"));
 			this.btnActionMenu.UseVisualStyleBackColor = true;
 			this.btnActionMenu.Click += new System.EventHandler(this.btnActionMenu_Click);
 			// 
@@ -163,7 +152,6 @@ namespace Renamer
 			// 
 			resources.ApplyResources(this.lblDirectory, "lblDirectory");
 			this.lblDirectory.Name = "lblDirectory";
-			this.toolTip1.SetToolTip(this.lblDirectory, resources.GetString("lblDirectory.ToolTip"));
 			// 
 			// pnlTable
 			// 
@@ -177,57 +165,50 @@ namespace Renamer
 			this.pnlTable.Controls.Add(this.cmbDirectory, 1, 1);
 			this.pnlTable.Controls.Add(this.btnSwape, 2, 2);
 			this.pnlTable.Name = "pnlTable";
-			this.toolTip1.SetToolTip(this.pnlTable, resources.GetString("pnlTable.ToolTip"));
 			// 
 			// pnlBrowser
 			// 
-			resources.ApplyResources(this.pnlBrowser, "pnlBrowser");
 			this.pnlBrowser.Controls.Add(this.btnBrowse);
 			this.pnlBrowser.Controls.Add(this.btnActionMenu);
+			resources.ApplyResources(this.pnlBrowser, "pnlBrowser");
 			this.pnlBrowser.Name = "pnlBrowser";
-			this.toolTip1.SetToolTip(this.pnlBrowser, resources.GetString("pnlBrowser.ToolTip"));
 			// 
 			// cmbDirectory
 			// 
 			resources.ApplyResources(this.cmbDirectory, "cmbDirectory");
 			this.cmbDirectory.FormattingEnabled = true;
 			this.cmbDirectory.Name = "cmbDirectory";
-			this.toolTip1.SetToolTip(this.cmbDirectory, resources.GetString("cmbDirectory.ToolTip"));
 			// 
 			// pnlBottom
 			// 
-			resources.ApplyResources(this.pnlBottom, "pnlBottom");
 			this.pnlBottom.Controls.Add(this.chkOnTop);
 			this.pnlBottom.Controls.Add(this.groupEncoding);
 			this.pnlBottom.Controls.Add(this.btnExit);
 			this.pnlBottom.Controls.Add(this.btnRename);
+			resources.ApplyResources(this.pnlBottom, "pnlBottom");
 			this.pnlBottom.Name = "pnlBottom";
-			this.toolTip1.SetToolTip(this.pnlBottom, resources.GetString("pnlBottom.ToolTip"));
 			// 
 			// chkOnTop
 			// 
 			resources.ApplyResources(this.chkOnTop, "chkOnTop");
 			this.chkOnTop.Name = "chkOnTop";
-			this.toolTip1.SetToolTip(this.chkOnTop, resources.GetString("chkOnTop.ToolTip"));
 			this.chkOnTop.UseVisualStyleBackColor = true;
 			this.chkOnTop.Click += new System.EventHandler(this.chkOnTop_Click);
 			// 
 			// groupEncoding
 			// 
-			resources.ApplyResources(this.groupEncoding, "groupEncoding");
 			this.groupEncoding.Controls.Add(this.rdoEncodingUTF8);
 			this.groupEncoding.Controls.Add(this.rdoEncodingDefault);
 			this.groupEncoding.Controls.Add(this.lblEncoding);
+			resources.ApplyResources(this.groupEncoding, "groupEncoding");
 			this.groupEncoding.Name = "groupEncoding";
 			this.groupEncoding.TabStop = false;
-			this.toolTip1.SetToolTip(this.groupEncoding, resources.GetString("groupEncoding.ToolTip"));
 			// 
 			// rdoEncodingUTF8
 			// 
 			resources.ApplyResources(this.rdoEncodingUTF8, "rdoEncodingUTF8");
 			this.rdoEncodingUTF8.Name = "rdoEncodingUTF8";
 			this.rdoEncodingUTF8.TabStop = true;
-			this.toolTip1.SetToolTip(this.rdoEncodingUTF8, resources.GetString("rdoEncodingUTF8.ToolTip"));
 			this.rdoEncodingUTF8.UseVisualStyleBackColor = true;
 			// 
 			// rdoEncodingDefault
@@ -236,14 +217,16 @@ namespace Renamer
 			this.rdoEncodingDefault.Checked = true;
 			this.rdoEncodingDefault.Name = "rdoEncodingDefault";
 			this.rdoEncodingDefault.TabStop = true;
-			this.toolTip1.SetToolTip(this.rdoEncodingDefault, resources.GetString("rdoEncodingDefault.ToolTip"));
 			this.rdoEncodingDefault.UseVisualStyleBackColor = true;
 			// 
 			// lblEncoding
 			// 
 			resources.ApplyResources(this.lblEncoding, "lblEncoding");
 			this.lblEncoding.Name = "lblEncoding";
-			this.toolTip1.SetToolTip(this.lblEncoding, resources.GetString("lblEncoding.ToolTip"));
+			// 
+			// browserDialog
+			// 
+			this.browserDialog.ShowNewFolderButton = false;
 			// 
 			// MainForm
 			// 
@@ -253,7 +236,6 @@ namespace Renamer
 			this.Controls.Add(this.pnlTable);
 			this.MaximizeBox = false;
 			this.Name = "MainForm";
-			this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
 			this.menuDirAction.ResumeLayout(false);
 			this.pnlTable.ResumeLayout(false);
 			this.pnlTable.PerformLayout();
